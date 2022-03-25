@@ -85,6 +85,6 @@ app.post("/", function(req, res) {
     res.send(fng);
 });
 
-app.listen(3000, function(){
+app.listen(8080, function(){
 console.log("server is running on port 3000");
 })
