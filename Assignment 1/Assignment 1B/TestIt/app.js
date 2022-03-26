@@ -46,7 +46,7 @@ app.post("/", function(req, res) {
 
     fng = fng + txt + "<br><H3>Repeated Removed</H3><br>";
     
-    var arr1 = nenp.split(" ");
+    var arr1 = nenp.toLowerCase().split(" ");
     var setu = [...new Set(arr1)];
     var txt = "";
 
@@ -73,11 +73,15 @@ app.post("/", function(req, res) {
     fng = fng + txt + "<br><H3>Numbers Extracted From String</H3><br>";
 
     var arr1 = nenp.match(/\d+/g);
-
-    var txt = "";
-    arr1.forEach(myFunction);
-    function myFunction(value, index, array) {
-        txt += value + ", "; 
+    if(arr1 === null){
+        var txt = "No Numbers";
+    }
+    else{
+        var txt = "";
+        arr1.forEach(myFunction);
+        function myFunction(value, index, array) {
+            txt += value + ", "; 
+        }
     }
 
     fng = fng + txt;
