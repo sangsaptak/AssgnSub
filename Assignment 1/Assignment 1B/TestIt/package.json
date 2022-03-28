@@ -1,5 +1,5 @@
 {
-  "name": "testit",
+  "name": "assigment",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,8 @@
   "dependencies": {
     "body-parser": "^1.19.2",
     "express": "^4.17.3",
-    "stopwords": "^0.0.9"
+    "nodemon": "^2.0.15",
+    "stopword": "^2.0.1",
+    "stopwords": "0.0.9"
   }
 }
