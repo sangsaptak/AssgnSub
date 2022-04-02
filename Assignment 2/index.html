@@ -1,0 +1,64 @@
+<HTML>
+    <HEAD>
+        <TITLE>Assignment 3</TITLE>
+    </HEAD>
+    <BODY>
+        <form>
+            Input String: <input type="text" id="fname">
+            <input type="button" value="Submit" onclick="GivRes()">
+        </form>
+        <H1>Input String</H1>
+        <p id="inpu"></p>
+        <H1>Currencies Extracted</H1>
+        <p id="rusu"></p>
+        <H1>Cats and Dogs</H1>
+        <p id="cado"></p>
+        <H1>Cats Only</H1>
+        <p id="cat"></p>
+        <H1>Numbers</H1>
+        <p id="numu"></p>
+        <H1>Cats Replaced</H1>
+        <p id="cutu"></p>
+        <H1>Words followed by space or colon</H1>
+        <p id="mog"></p>
+        <script>
+            function getNum(styu){
+                var putu = /[$|€] ?[0-9][0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?[0-9]?\.?[0-9]?[0-9]?[0-9]?[0-9]?/g;
+                document.getElementById("rusu").innerHTML = styu.match(putu);
+            }
+            function getCado(styu){
+                var putu = /(cat|dog|rat|rabbit)/g;
+                document.getElementById("cado").innerHTML = styu.match(putu);
+            }
+            function getCat(styu){
+                var putu = /cat/ig;
+                document.getElementById("cat").innerHTML = styu.match(putu);
+            }
+            function getNums(styu){
+                var putu = /[0-9.]+/g;
+                document.getElementById("numu").innerHTML = styu.match(putu);
+            }
+            function repCat(styu){
+                var putu = /cat/ig;
+                document.getElementById("cutu").innerHTML = styu.replace(putu, 'dog');
+            }
+            function getCuls(styu){
+                var putu = /[a-zA-Z]+ ?:?/g;
+                document.getElementById("mog").innerHTML = styu.match(putu);
+            }
+            function MyGet(x, myCallback){
+                myCallback(x);
+            }
+            function GivRes() {
+                var x = document.getElementById("fname").value;
+                document.getElementById("inpu").innerHTML = x;
+                MyGet(x, getNum)
+                MyGet(x, getCado)
+                MyGet(x, getCat)
+                MyGet(x, getNums)
+                MyGet(x, repCat)
+                MyGet(x, getCuls)
+            }
+        </script>
+    </BODY>
+</HTML>
