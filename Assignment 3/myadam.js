@@ -2,7 +2,7 @@ const express = require('express')
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
-var url = 'mongodb://jarvisultronrrr:LAwT0wC161oGoHlOvcSWci4I81ZC7C8rSo70MruCrgWhgzmwSiDSG6gHTlMuP6SeDoOGh1EZZsKIderTDUj9rg==@jarvisultronrrr.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@jarvisultronrrr@';
+var url = 'mongodb://jarvisultronkgf2now:Wpiao2Dcj13Fr293NwVbdFmlWvm4pQ7X4vK2FiKS67D4oEGrZKcIGk650Rc1xe55D4ScOIFqoSjuZCa3Ud62kw==@jarvisultronkgf2now.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@jarvisultronkgf2now@';
 
 
 const app = express()
@@ -41,9 +41,11 @@ MongoClient.connect(url, function(err, client) {
         res.send("Inserted Successfully");
     })
 
-    app.get('/fumlu/:input', (req, res) => {
-        var input = req.params.input
-        db.collection('fumlu').find({"firstName" : input} ).toArray(function(err, doc) {
+    app.get('/fumlus/:inputa/:inputb', (req, res) => {
+        var inputa = req.params.inputa
+        var inputb = req.params.inputb
+        var query = {$or: [{firstName :{$regex : inputa}},{lastName :{$regex : inputb}}]}
+        db.collection('fumlu').find(query).toArray(function(err, doc) {
             assert.equal(err, null);
             if (err) throw err;
             res.send(doc);
